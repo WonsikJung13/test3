@@ -21,6 +21,8 @@
 	
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
+		<property name="mapperLocations" value="classpath*:/mappers/**/*.xml"/>
+
 	</bean>
 	
 	<context:property-placeholder location="/WEB-INF/props/jdbc.properties" />
@@ -33,7 +35,8 @@
 	
 	<!-- transaction 처리 -->
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="dataSource"></property>	
+		<property name="dataSource" ref="dataSource"></property>
+
 	</bean>
 	
 	<tx:annotation-driven/>
